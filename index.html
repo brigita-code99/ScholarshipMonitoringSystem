@@ -1,0 +1,118 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#174b35">
+    <title>Scholarship Monitoring System | Sign in</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-body">
+    <main class="auth-layout">
+        <section class="auth-intro">
+            <div class="brand-mark">SM</div>
+            <p class="eyebrow">STUDENT SERVICES</p>
+            <h1>Student Scholarship Monitoring &amp; Academic Compliance System</h1>
+            <p>
+                Track academic submissions, verify records, and monitor
+                scholarship compliance in one place.
+            </p>
+            <div class="intro-note">
+                For demonstration and academic use. Use fictional student records only.
+            </div>
+        </section>
+
+        <section class="auth-card">
+            <h2>Welcome back</h2>
+            <p class="muted">Sign in to continue to your portal.</p>
+
+            <form id="login-form">
+                <label for="email">Email address</label>
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="username"
+                    placeholder="you@example.com"
+                    required
+                >
+
+                <label for="password">Password</label>
+                <div class="password-wrapper">
+                    <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        autocomplete="current-password"
+                        placeholder="Enter your password"
+                        required
+                    >
+                    <button
+                        type="button"
+                        id="toggle-password"
+                        class="password-toggle"
+                        aria-label="Show password"
+                        aria-pressed="false"
+                    >Show</button>
+                </div>
+
+                <button class="button primary full" type="submit">
+                    Sign in
+                </button>
+
+                <p id="login-message" class="form-message" role="status" aria-live="polite"></p>
+            </form>
+
+            <div class="auth-divider"></div>
+
+            <p class="small muted">Demo Accounts</p>
+
+            <div class="demo-accounts">
+                <div class="demo-account">
+                    <strong>Staff Account</strong>
+                    <p class="muted">Email: staff@example.com</p>
+                    <p class="muted">Password: staff123</p>
+                    <button
+                        type="button"
+                        class="button demo-fill"
+                        data-email="staff@example.com"
+                        data-password="staff123"
+                    >Use Staff Account</button>
+                </div>
+
+                <div class="demo-account">
+                    <strong>Student Account</strong>
+                    <p class="muted">Email: student@example.com</p>
+                    <p class="muted">Password: student</p>
+                    <button
+                        type="button"
+                        class="button demo-fill"
+                        data-email="student@example.com"
+                        data-password="student"
+                    >Use Student Account</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const passwordInput = document.getElementById("password");
+        const togglePassword = document.getElementById("toggle-password");
+
+        togglePassword.addEventListener("click", () => {
+            const show = passwordInput.type === "password";
+            passwordInput.type = show ? "text" : "password";
+            togglePassword.textContent = show ? "Hide" : "Show";
+            togglePassword.setAttribute(
+                "aria-label",
+                show ? "Hide password" : "Show password"
+            );
+            togglePassword.setAttribute("aria-pressed", String(show));
+        });
+    </script>
+
+    <script type="module" src="js/login.js"></script>
+</body>
+</html>
